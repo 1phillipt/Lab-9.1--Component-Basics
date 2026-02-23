@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import './App.css'
+import { AlertBox } from './components/AlertBox/AlertBox';
 
 function App() {
   const [showAlert, setShowAlert] = useState(false)
@@ -24,9 +25,15 @@ function App() {
 
 
   return (
-    <>
-      
-    </>
+    <div>
+      {showAlert && (
+        <AlertBox
+          type="success"
+          message="Product added to cart!"
+          onClose={() => setShowAlert(false)}
+        />
+      )}
+    </div>
   )
 }
 
